@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="google-adsense-account" content="ca-pub-2820012446038607">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./sigma.png">
+    <title>JO Wrapped</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url('https://storage.googleapis.com/pr-newsroom-wp/1/2019/09/Spotify_Logo_RGB_Green.png') no-repeat center center/cover;
+            color: white;
+            overflow: hidden;
+        }
+        .background-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, rgba(29, 185, 84, 0.7), rgba(18, 18, 18, 0.9));
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #fff;
+            color: #1db954;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .result {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            color: #1db954;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <div class="form-container">
+            <h1>Jack Off Wrapped 2024</h1>
+            <form id="wrappedForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <select id="continent" required>
+                    <option value="">Continent you live on</option>
+                    <option value="1.5">Europe</option>
+                    <option value="1.3">Asia</option>
+                    <option value="1.7">South America</option>
+                    <option value="1.6">North America</option>
+                    <option value="1.1">Africa</option>
+                    <option value="0.5">Antarctica</option>
+                    <option value="1">Australia</option>
+                </select>
+                <label>
+                    Are you sigma? 
+                    <input type="checkbox" id="sigma">
+                </label>
+                <button type="submit">Let's Go!</button>
+            </form>
+        </div>
+        <div class="result" id="result">
+            <h2 id="resultText"></h2>
+            <button class="download-button" id="downloadButton">Download to share</button>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('wrappedForm');
+        const resultDiv = document.getElementById('result');
+        const resultText = document.getElementById('resultText');
+        const downloadButton = document.getElementById('downloadButton');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const continentFactor = parseFloat(document.getElementById('continent').value);
+            const isSigma = document.getElementById('sigma').checked;
+
+            
+            let minutes = Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
+
+           
+            if (isSigma) minutes *= 10;
+            minutes *= continentFactor;
+            minutes = Math.floor(minutes);
+
+      
+            resultText.innerHTML = `${name}, you jerked off for ${minutes} minutes in 2024!!!`;
+            form.style.display = 'none';
+            resultDiv.style.display = 'block';
+        });
+        const background = new Image();
+        background.src = './sigma.png'; 
+
+        background.onload = function () {
+         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+        };
+
+
+        downloadButton.addEventListener('click', function () {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 1000;
+            canvas.height = 1000;
+
+            const background = new Image();
+            background.src = './sigma.png';
+
+            background.onload = function () {
+                ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+                
+                const textParts = resultText.textContent.split(', ');
+                ctx.font = 'bold 40px Arial';
+                ctx.fillStyle = 'white';
+                ctx.textAlign = 'center';
+                ctx.fillText(textParts[0] + ',', canvas.width / 2, canvas.height / 2 - 20);
+                ctx.fillText(textParts[1], canvas.width / 2, canvas.height / 2 + 20);
+
+                
+                ctx.font = 'bold 20px Arial';
+                ctx.fillText('https://jerkoffwrapped.github.io', canvas.width / 2, canvas.height / 2 + 60);
+
+                
+                const link = document.createElement('a');
+                link.download = 'jerkoff-wrapped-2024.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+
+            background.onerror = function () {
+                alert('Background image could not be loaded. Please check the URL.');
+            };
+        });
+    </script>
+</body>
+</html>
